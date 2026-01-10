@@ -1,0 +1,71 @@
+/* 
+      input {
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .btn {
+        background-color: greenyellow;
+        color: white;
+        padding: 10px 10px;
+        margin-left: 10px;
+        border:none;
+        border-radius: 10px;
+        font-size: 15px;
+        cursor: pointer;
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .input-field {
+        padding:10px 10px;
+        border-radius: 10px;
+        border-width: 1px;
+        font-size: 15px;  
+        flex-grow: 1;
+      }
+
+      .chat-input {
+        display: flex;
+        margin-bottom: 30px;
+      
+      } */
+
+      .app-container {
+        max-width: 600px;
+        margin-left:auto;
+        margin-right:auto;
+        height:100vh;
+        display: flex;
+        flex-direction: column;
+      }
+/* 
+      .user-msg {
+        display:flex;
+        justify-content:flex-end;
+        align-items: start;
+      } 
+
+      .bot-msg {
+        display: flex;
+        align-items: start;
+      } */
+
+      /* .chat-message-text {
+        background-color:lightcyan;
+        padding: 10px 10px;
+        margin: 10px;
+        border-radius: 10px;
+        max-width:300px;
+      }
+     .bot-img {
+      width: 45px;
+     }
+     .user-img {
+      width:45px;
+     }
+
+     .chat-messages-container {
+      flex-grow: 1;
+      margin-top:10px;
+      overflow: scroll;
+      scrollbar-width: none;
+     } */
