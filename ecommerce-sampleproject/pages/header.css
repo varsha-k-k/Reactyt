@@ -59,6 +59,10 @@
   }
 }
 
+.orders-link.active .orders-text {
+  text-decoration:underline;
+}
+
 .header .middle-section {
   flex: 1;
   max-width: 850px;
