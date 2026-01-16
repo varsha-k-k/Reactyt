@@ -2,13 +2,14 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 // import { products } from "../starting-code/data/products";
 import { Header } from "./Header";
-// import "./header.css";
+import {convertCenttoDollar} from "../src/utils/money";
 import "./HomePage.css";
-export function HomePage() {
+export function HomePage({cart}) {
   const [products,setProducts] = useState([]);
+  // const [cart,setCart] = useState([]);
   useEffect(()=>
   {
-      axios.get('http://localhost:3000/api/products')
+      axios.get('/api/products')
   .then((response)=>
   {
     setProducts(response.data);
@@ -18,7 +19,7 @@ export function HomePage() {
   return (
     <>
       <title>Homepage</title>
-      <Header />
+      <Header cart = {cart}/>
       <div className="home-page">
         <div className="products-grid">
           {products.map((product) => {
@@ -45,7 +46,8 @@ export function HomePage() {
                 </div>
 
                 <div className="product-price">
-                  ${(product.priceCents / 100).toFixed(2)}
+                  {/* ${(product.priceCents / 100).toFixed(2)} */}
+                  {convertCenttoDollar(product.priceCents)}
                 </div>
 
                 <div className="product-quantity-container">
