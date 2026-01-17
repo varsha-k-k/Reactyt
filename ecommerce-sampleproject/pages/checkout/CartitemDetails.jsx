@@ -1,6 +1,15 @@
+
+import axios from "axios";
 import { convertCenttoDollar } from "../../src/utils/money";
-export function CartitemDetails({item})
+export function CartitemDetails({item , loadCart})
 {
+
+
+  const deleteCartItem = async()=>
+  {
+    await axios.delete(`/api/cart-items/${item.productId}`);
+    await loadCart();
+  }
     return(<> <img
                                       className="product-image"
                                       src={item.product.image}
@@ -23,7 +32,8 @@ export function CartitemDetails({item})
                                         <span className="update-quantity-link link-primary">
                                           Update
                                         </span>
-                                        <span className="delete-quantity-link link-primary">
+                                        <span className="delete-quantity-link link-primary"
+                                          onClick={deleteCartItem}>
                                           Delete
                                         </span>
                                       </div>
