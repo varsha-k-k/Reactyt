@@ -35,7 +35,7 @@ export function Orders({ cart }) {
                     <div className="order-date">
                       <div className="order-header-label">Order Placed:</div>
                       <div>
-                        {dayjs(order.orderTimeMs).format("MMMM D")}August 12
+                        {dayjs(order.orderTimeMs).format("MMMM D")}
                       </div>
                     </div>
                     <div className="order-total">
@@ -82,7 +82,7 @@ export function Orders({ cart }) {
                           </button>
                         </div>
                         <div className="product-actions">
-                          <Link to="/tracking">
+                          <Link to={`/tracking/${order.id}/${orderProduct.product.id}`}>
                             <button className="track-package-button button-secondary">
                               Track package
                             </button>
