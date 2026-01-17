@@ -2,8 +2,8 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Header } from "./Header";
-import { convertCenttoDollar } from "../src/utils/money";
+import { Header } from "../Header";
+import { convertCenttoDollar } from "../../src/utils/money";
 import "./orders.css";
 // import './header.css';
 export function Orders({ cart }) {
@@ -16,34 +16,7 @@ export function Orders({ cart }) {
   return (
     <>
       <title>Orders</title>
-      {/* <div className="header">
-        <div className="left-section">
-          <a href="/" className="header-link">
-            <img className="logo" src="images/logo-white.png" />
-            <img className="mobile-logo" src="images/mobile-logo-white.png" />
-          </a>
-        </div>
-
-        <div className="middle-section">
-          <input className="search-bar" type="text" placeholder="Search" />
-
-          <button className="search-button">
-            <img className="search-icon" src="images/icons/search-icon.png" />
-          </button>
-        </div>
-
-        <div className="right-section">
-          <a className="orders-link header-link" href="orders">
-            <span className="orders-text">Orders</span>
-          </a>
-
-          <a className="cart-link header-link" href="checkout">
-            <img className="cart-icon" src="images/icons/cart-icon.png" />
-            <div className="cart-quantity">3</div>
-            <div className="cart-text">Cart</div>
-          </a>
-        </div>
-      </div> */}
+  
       <Header cart={cart} />
 
       <div className="orders-page">
@@ -79,16 +52,21 @@ export function Orders({ cart }) {
                       <Fragment key={orderProduct.product.id}>
                         {" "}
                         <div className="product-image-container">
-                          <img src={orderProduct.product.image}/>
+                          <img src={orderProduct.product.image} />
                         </div>
                         <div className="product-details">
                           <div className="product-name">
                             {orderProduct.product.name}
                           </div>
                           <div className="product-delivery-date">
-                            Arriving on: {dayjs(orderProduct.estimatedDeliveryTimeMs).format('MMMM D')}
+                            Arriving on:{" "}
+                            {dayjs(orderProduct.estimatedDeliveryTimeMs).format(
+                              "MMMM D"
+                            )}
                           </div>
-                          <div className="product-quantity">Quantity: {orderProduct.quantity}</div>
+                          <div className="product-quantity">
+                            Quantity: {orderProduct.quantity}
+                          </div>
                           <button className="buy-again-button button-primary">
                             <img
                               className="buy-again-icon"
@@ -109,12 +87,10 @@ export function Orders({ cart }) {
                       </Fragment>
                     );
                   })}
-              
                 </div>
               </div>
             );
           })}
-        
         </div>
       </div>
     </>

@@ -2,9 +2,9 @@ import React from "react";
 import {useEffect , useState} from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
-import { HomePage} from "../pages/HomePage";
-import { Checkout} from "../pages/Checkout";
-import { Orders} from "../pages/Orders";
+import { HomePage} from "../pages/home/HomePage";
+import { Checkout} from "../pages/checkout/Checkout";
+import { Orders} from "../pages/orders/Orders";
 import { Tracking} from '../pages/Tracking';
 import "./App.css";
 
