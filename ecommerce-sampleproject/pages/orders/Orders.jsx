@@ -6,7 +6,7 @@ import { Header } from "../Header";
 import { convertCenttoDollar } from "../../src/utils/money";
 import "./orders.css";
 // import './header.css';
-export function Orders({ cart }) {
+export function Orders({ cart ,loadCart}) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const getOrderData = async ()=>
@@ -17,6 +17,8 @@ export function Orders({ cart }) {
   getOrderData();
     },[]);
 
+
+    
   return (
     <>
       <title>Orders</title>
@@ -52,6 +54,14 @@ export function Orders({ cart }) {
 
                 <div className="order-details-grid">
                   {order.products.map((orderProduct) => {
+                             const addToCart = async()=>
+                                      {
+                            await axios.post(' /api/cart-items' ,{
+                              productId :orderProduct.product.id,
+                              quantity :1
+                            });
+                            await loadCart();
+                                }
                     return (
                       <Fragment key={orderProduct.product.id}>
                         {" "}
@@ -76,7 +86,8 @@ export function Orders({ cart }) {
                               className="buy-again-icon"
                               src="images/icons/buy-again.png"
                             />
-                            <span className="buy-again-message">
+                            <span className="buy-again-message"
+                            onClick ={addToCart}>
                               Add to Cart
                             </span>
                           </button>

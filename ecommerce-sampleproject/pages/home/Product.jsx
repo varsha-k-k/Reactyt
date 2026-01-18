@@ -5,6 +5,7 @@ export function Product({loadCart , product})
 {
     
   const [quantity , setQuantity] = useState(1);
+  const [addMessage , setAddMessage] = useState(false);
   const addtoCart = async()=>
             {
                 await axios.post(' /api/cart-items' ,{
@@ -12,7 +13,13 @@ export function Product({loadCart , product})
                   quantity : quantity
                 });
                 await loadCart();
-            }
+                setAddMessage(true);
+
+                setTimeout(()=>
+                {
+                  setAddMessage(false);
+                },2000);
+            };
     const selectQuantity = (event)=>
                 {
                     const selectedValue = Number(event.target.value);
@@ -61,7 +68,7 @@ export function Product({loadCart , product})
 
             <div className="product-spacer"></div>
 
-            <div className="added-to-cart">
+            <div className="added-to-cart" style ={{opacity:addMessage?1:0}}>
               <img src="images/icons/checkmark.png" />
               Added
             </div>
